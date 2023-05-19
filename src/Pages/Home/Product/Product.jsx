@@ -4,7 +4,7 @@ import Toycard from "./Toycard";
 const Product = () => {
   const [toys, settoy] = useState([]);
   useEffect(() => {
-    fetch("x.json")
+    fetch("http://localhost:5000/cars")
       .then((res) => res.json())
       .then((data) => settoy(data));
   }, []);

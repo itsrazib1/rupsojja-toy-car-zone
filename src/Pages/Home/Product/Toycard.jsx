@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const Toycard = ({ toy }) => {
-    const { title , img , price } = toy;
+    const { _id,title , img , price } = toy;
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -14,7 +16,9 @@ const Toycard = ({ toy }) => {
           <h2 className="card-title">{title}</h2>
           <p>${price}</p>
           <div className="card-actions">
+            <Link to={`/chekout/${_id}`}>
             <button className="btn btn-primary">Buy Now</button>
+            </Link>
           </div>
         </div>
       </div>
