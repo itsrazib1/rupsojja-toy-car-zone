@@ -4,6 +4,9 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Singup from "../Pages/Singup/Singup";
 import Chekout from "../Pages/Chekout/Chekout";
+import MyCart from "../Pages/MyCart/MyCart";
+import Privateroute from "./Privateroute";
+import Addtoy from "../Pages/AddToy/Addtoy";
 
 const router = createBrowserRouter([
     {
@@ -23,9 +26,18 @@ const router = createBrowserRouter([
             element:<Singup/>
         },
         {
+            path:'/addtoy',
+            element:<Addtoy/>
+        },
+        {
             path:'chekout/:id',
             element:<Chekout/>,
             loader: ({params}) => fetch(`http://localhost:5000/cars/${params.id}`)
+        },
+        {
+            path:'mycart',
+            element:<Privateroute><MyCart/></Privateroute>,
+            
         },
       ]
     },

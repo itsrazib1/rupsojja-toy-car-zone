@@ -4,6 +4,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
 
@@ -23,7 +24,11 @@ const singIn = (email,password)=>{
     setLoading(true)
     return signInWithEmailAndPassword(auth,email,password)
 }
+const logOut = () =>{
+  setLoading(true);
+  return signOut(auth)
 
+}
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -39,7 +44,8 @@ const singIn = (email,password)=>{
     user,
     loading,
     createUser,
-    singIn
+    singIn,
+    logOut
   };
 
   return (

@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../../public/img/img-1.jpg'
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/Authprovider';
 
 const Navber = () => {
+
+  const {user , logOut} = useContext(AuthContext);
+  const hendellogout = () => {
+    logOut()
+    .then(()=> {})
+    .catch(error => console.log(error))
+  }
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -65,17 +75,31 @@ const Navber = () => {
             </li>
             
             <li>
-              <Link to='addtoy'>Add A Toy</Link>
+              <Link to='/addtoy'>Add A Toy</Link>
             </li>
             <li>
               <Link to='blogs'>Blogs</Link>
             </li>
           </ul>
         </div>
-        
+     
         <div className="navbar-end">
-        <div className='me-10'>Surch</div>
-          <Link to='login' className="btn">Login</Link>
+        
+        <div>
+          
+        </div>
+        { user?.email ?
+        <>
+        <Link to='/mycart' className=' me-4' >MyCart</Link> 
+         <Link className='btn btn-error' onClick={hendellogout}>Log Out</Link>  
+          <img className=' w-16 ' src={user?.img}  alt="" />
+          
+        </>
+        
+         :
+        <Link to='login' className="btn btn-success">Login</Link>
+         }
+          
         </div>
       </div>
     </div>
