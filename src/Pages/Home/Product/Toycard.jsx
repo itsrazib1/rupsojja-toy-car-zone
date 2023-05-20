@@ -17,7 +17,7 @@ const Toycard = ({ toy }) => {
           <p>{Price}৳</p>
           <div className="card-actions">
             <Link to={`/chekout/${_id}`}>
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-primary">View Dtails</button>
             </Link>
           </div>
         </div>
