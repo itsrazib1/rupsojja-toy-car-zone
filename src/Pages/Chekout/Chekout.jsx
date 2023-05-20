@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 const Chekout = () => {
   const cars = useLoaderData();
-  const { name,  url , price , _id } = cars;
+  const { name,  url , Price , _id } = cars;
   const {user} = useContext(AuthContext)
 
 const handelorder = event => {
@@ -21,7 +21,7 @@ const handelorder = event => {
             const order = {
                 customerName: name,
                 service: name,
-                price: price,
+                price: Price,
                 cart_id: _id,
                 phone,
                 email,
@@ -59,8 +59,8 @@ const handelorder = event => {
       <h2 className="text-center">MY CART:{name}</h2>
 
       <form onSubmit={handelorder} className="hero min-w-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row">
-          <div className=" w-[50%]">
+        <div className="hero-content  lg:flex-row">
+          <div className=" md:w-[50%]">
             <img className=" mx-auto" src={url} alt="" />
           </div>
           <div className=" md:w-[50%]  card flex-shrink-0  max-w-full shadow-2xl bg-base-100">

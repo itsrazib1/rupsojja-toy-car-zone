@@ -8,11 +8,13 @@ import MyCart from "../Pages/MyCart/MyCart";
 import Privateroute from "./Privateroute";
 import Addtoy from "../Pages/AddToy/Addtoy";
 import Alltoy from "../Pages/Alltoy/Alltoy";
+import Error from "../Pages/Error/Error";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main/>,
+      errorElement:<Error/>,
       children:[
         {
             path:'/',
