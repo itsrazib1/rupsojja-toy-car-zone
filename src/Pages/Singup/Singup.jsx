@@ -7,22 +7,24 @@ const Singup = () => {
 
 const {createUser} = useContext(AuthContext)
 
-    const hendlelogin = event => {
-        event.preventDefault();
+const hendlelogin = event => {
+  event.preventDefault();
 
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(name,email,password);
-        createUser(email,password,name)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => console.log(error))
-        
-    }
+  const form = event.target;
+  const displayName = form.displayName.value;
+  const email = form.email.value;
+  const photoURL = form.photoURL.value;
+  const password = form.password.value;
+  console.log(displayName, email, password, photoURL);
+
+  createUser(email, password, displayName, photoURL)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch(error => console.log(error));
+}
+
 
     return (
         <div>
@@ -41,7 +43,7 @@ const {createUser} = useContext(AuthContext)
           <label className="label">
             <span className="label-text">Name</span>
           </label>
-          <input type="text" placeholder="name" name='name' className="input input-bordered" />
+          <input type="text" placeholder="name" name='displayName' className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
@@ -53,7 +55,7 @@ const {createUser} = useContext(AuthContext)
           <label className="label">
             <span className="label-text">Photo URL</span>
           </label>
-          <input type="text" placeholder="Photo URL" name='photourl' className="input input-bordered" />
+          <input type="text" placeholder="Photo URL" name='photoURL' className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">

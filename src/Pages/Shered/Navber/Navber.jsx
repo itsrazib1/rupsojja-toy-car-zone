@@ -1,16 +1,15 @@
-import { Link } from 'react-router-dom';
-import logo from '../../../../public/img/img-1.jpg'
-import { useContext } from 'react';
-import { AuthContext } from '../../../Providers/Authprovider';
+import { Link } from "react-router-dom";
+import logo from "../../../../public/img/img-1.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/Authprovider";
 
 const Navber = () => {
-
-  const {user , logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const hendellogout = () => {
     logOut()
-    .then(()=> {})
-    .catch(error => console.log(error))
-  }
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div>
@@ -33,73 +32,92 @@ const Navber = () => {
                 />
               </svg>
             </label>
-            
+
             <ul
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-             <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='alltoy'>All Toys</Link>
-            </li>
-            <li>
-              <Link to='mytoy'>My Toys</Link>
-            </li>
-            
-            <li>
-              <Link to='addtoy'>Add A Toy</Link>
-            </li>
-            <li>
-              <Link to='blogs'>Blogs</Link>
-            </li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="alltoy">All Toys</Link>
+              </li>
+              <li>
+                <Link to="mytoy">My Toys</Link>
+              </li>
+
+              <li>
+                <Link to="addtoy">Add A Toy</Link>
+              </li>
+              <li>
+                <Link to="blogs">Blogs</Link>
+              </li>
             </ul>
           </div>
-          <Link to='/' className="  text-xl">
-            <img className=' w-36 rounded-lg' src={logo} alt="" />
+          <Link to="/" className="text-xl">
+            <img
+              className="w-36 hidden lg:block rounded-lg"
+              src={logo}
+              alt=""
+            />
           </Link>
-          <div className=' lg:text-xl font-bold ms-5  text-xs  '>Rupsojja ToY Car Zone</div>
+          <div className="md:text-xl hidden md:block font-bold ms-5 text-xs">
+            Rupsojja ToY Car Zone
+          </div>
         </div>
-        
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to='alltoy'>All Toys</Link>
+              <Link to="alltoy">All Toys</Link>
             </li>
+
             <li>
-              <Link to='mytoy'>My Toys</Link>
-            </li>
-            
-            <li>
-              <Link to='/addtoy'>Add A Toy</Link>
-            </li>
-            <li>
-              <Link to='blogs'>Blogs</Link>
+              <Link to="blogs">Blogs</Link>
             </li>
           </ul>
         </div>
-     
+
         <div className="navbar-end">
-        
-        <div>
-          
-        </div>
-        { user?.email ?
-        <>
-        <Link to='/mycart' className=' me-4' >MyCart</Link> 
-         <Link className='btn btn-error' onClick={hendellogout}>Log Out</Link>  
-          <img className=' w-16 ' src={user?.img}  alt="" />
-          
-        </>
-        
-         :
-        <Link to='login' className="btn btn-success">Login</Link>
-         }
-          
+          {user?.email ? (
+            <>
+              <div className=" -ms-64  text-xs border border-3 border-red-500 p-1 rounded-md">
+                <Link to="mytoy">My Toys</Link>
+              </div>
+              <div className="text-xs  ms-3 border border-3 border-red-500 p-1 rounded-md">
+                <Link to="/addtoy ">Add A Toy</Link>
+              </div>
+              <div className="text-xs">
+                <Link
+                  to="/mycart"
+                  className="ms-3 text-xs border border-3 border-red-500 p-1 rounded-md"
+                >
+                  MyCart
+                </Link>
+              </div>
+              <div className="relative group">
+                <img
+                  className="w-12 rounded-full ms-2"
+                  src={user?.photoURL}
+                  alt=""
+                />
+                <div className="absolute top-0 -right-20 bg-white border border-gray-200 rounded-lg py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Hello, {user?.displayName}
+                </div>
+              </div>
+              <Link className="btn btn-error ms-2" onClick={hendellogout}>
+                Log Out
+              </Link>
+            </>
+          ) : (
+            <Link to="login" className="btn btn-success">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import Chekout from "../Pages/Chekout/Chekout";
 import MyCart from "../Pages/MyCart/MyCart";
 import Privateroute from "./Privateroute";
 import Addtoy from "../Pages/AddToy/Addtoy";
+import Alltoy from "../Pages/Alltoy/Alltoy";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         {
             path:'/addtoy',
             element:<Addtoy/>
+        },
+        {
+            path:'/alltoy',
+            element:<Alltoy/>
         },
         {
             path:'chekout/:id',

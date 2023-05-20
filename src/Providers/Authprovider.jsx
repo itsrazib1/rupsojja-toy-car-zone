@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
 
@@ -15,14 +16,35 @@ const Authprovider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const createUser = (email, password) => {
+  const createUser = (email, password, displayName, photoURL) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+  
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then(result => {
+        const user = result.user;
+        // Update user's display name and photo URL
+        return updateProfile(user, { displayName, photoURL })
+          .then(() => {
+            setUser(user);
+            setLoading(false);
+            return result;
+          })
+          .catch(error => {
+            setLoading(false);
+            throw error;
+          });
+      })
+      .catch(error => {
+        setLoading(false);
+        throw error;
+      });
   };
+  
 
-const singIn = (email,password)=>{
+const singIn = (email,password,photoURL,displayName)=>{
     setLoading(true)
-    return signInWithEmailAndPassword(auth,email,password)
+    return signInWithEmailAndPassword(auth,email,password ,photoURL,displayName)
+
 }
 const logOut = () =>{
   setLoading(true);
