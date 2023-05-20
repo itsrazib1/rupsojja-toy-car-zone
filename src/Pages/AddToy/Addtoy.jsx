@@ -1,16 +1,58 @@
+import { useContext } from 'react';
 import img from '../../../public/img/images.png'
+import { AuthContext } from '../../Providers/Authprovider';
 
 const Addtoy = () => {
+
+    const {user} = useContext(AuthContext)
+
+const hendelAddToy = event => {
+    event.preventDefault();
+
+const form = event.target;
+
+const name = form.name.value;
+const url = form.url.value;
+const Sellername = form.Sellername.value;
+const Selleremail = user.email;
+const Subcategory = form.Subcategory.value;
+const Price = form.Price.value;
+const quantity = form.quantity.value;
+const Rating = form.Rating.value;
+const description = form.description.value;
+
+const newCoffee = {name,url,Sellername,Selleremail,Subcategory,Price,quantity,Rating,description};
+console.log(newCoffee);
+
+//send data
+
+
+fetch('http://localhost:5000/toys',{
+    method: 'POST',
+    headers:{
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify(newCoffee)
+})
+.then(res => res.json())
+.then(data => {
+    console.log(data);
+})
+
+} 
+
+
+    
     return (
         <div><div>
-        <h2 className=" text-center ">MY CART</h2>
+        <h2 className=" text-center ">ADD NEW TOY</h2>
   
-        <form className="hero  min-w-screen bg-base-200">
+        <form onSubmit={hendelAddToy} className="hero  min-w-screen bg-base-200">
           <div className="hero-content flex-col w-full lg:flex-row">
-            <div className=" w-[30%]">
+            <div className=" w-[40%]">
               <img className=" mx-auto" src={img} alt="" />
             </div>
-            <div className=" md:w-[70%]  card flex-shrink-0  max-w-full shadow-2xl bg-base-100">
+            <div className=" md:w-[60%]  card flex-shrink-0  max-w-full shadow-2xl bg-base-100">
               <div className="card-body w-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="form-control">
@@ -44,7 +86,7 @@ const Addtoy = () => {
                     </label>
                     <input
                       type="text"
-                      name="name"
+                      name="Sellername"
                       placeholder="name"
                       
                       className="input input-bordered"
@@ -56,8 +98,9 @@ const Addtoy = () => {
                     </label>
                     <input
                       type="text"
-                      name="phone"
+                      name="Selleremail"
                       placeholder="phone"
+                      defaultValue={user?.email}
                       className="input input-bordered"
                     />
                   </div>
@@ -69,8 +112,8 @@ const Addtoy = () => {
                     </label>
                     <input
                       type="text"
-                      name="email"
-                      placeholder="email"
+                      name="Subcategory"
+                      placeholder="Sub-category"
                       className="input input-bordered"
                       
                     />
@@ -79,7 +122,7 @@ const Addtoy = () => {
                     <label className="label">
                       <span className="label-text">Price</span>
                     </label>
-                    <input type="number" name="date" className="input input-bordered" />
+                    <input type="number" placeholder='Price' name="Price" className="input input-bordered" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -89,8 +132,8 @@ const Addtoy = () => {
                     </label>
                     <input
                       type="text"
-                      name="email"
-                      placeholder="email"
+                      name="quantity"
+                      placeholder="Available quantity"
                       className="input input-bordered"
                       
                     />
@@ -99,7 +142,7 @@ const Addtoy = () => {
                     <label className="label">
                       <span className="label-text">Rating</span>
                     </label>
-                    <input type="number" name="date" className="input input-bordered" />
+                    <input type="number" placeholder='Rating' name="Rating" className="input input-bordered" />
                   </div>
                 </div>
   
@@ -111,7 +154,8 @@ const Addtoy = () => {
                     type="text"
                     name="description"
                     placeholder="Detail description"
-                    className="input input-bordered text-center  pb-16 pt-16"
+                
+                    className="input input-bordered text-center  "
                   />
                 </div>
                 <div className="form-control mt-6">

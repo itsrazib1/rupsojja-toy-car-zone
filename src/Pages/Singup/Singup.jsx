@@ -51,6 +51,12 @@ const {createUser} = useContext(AuthContext)
         </div>
         <div className="form-control">
           <label className="label">
+            <span className="label-text">Photo URL</span>
+          </label>
+          <input type="text" placeholder="Photo URL" name='photourl' className="input input-bordered" />
+        </div>
+        <div className="form-control">
+          <label className="label">
             <span className="label-text">Confirm Password</span>
           </label>
           <input type="text" placeholder="password" name='password' className="input input-bordered" />
