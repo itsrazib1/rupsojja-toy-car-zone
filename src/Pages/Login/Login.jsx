@@ -4,11 +4,14 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/Authprovider";
 
 const Login = () => {
+ 
   useEffect(()=>{
     document.title = "RTCZ | login"
 },[])
-  const { singIn } = useContext(AuthContext);
-
+  const { singIn , googleSignIn } = useContext(AuthContext);
+  const handleGoogle = () => {
+    googleSignIn();
+  };
   const hendlelogin = (event) => {
     event.preventDefault();
 
@@ -78,7 +81,19 @@ const Login = () => {
                   Sing Up
                 </Link>
               </p>
-              
+              <div className=" text-center">
+                <button
+                  onClick={handleGoogle}
+                  className=" mt-2 btn btn-outline btn-accent mx-auto"
+                >
+                  <img
+                    className=" w-8 rounded-full"
+                    src="https://i.ibb.co/1L69L3F/6-Ug-Ejh8-Xuts4nwd-Wz-Tn-WH8-Qt-Lu-Hq-RMUB7dp24-JYVE2xc-Yzq4-HA8h-Ffc-Ab-U-R-PC-9u-A1.png"
+                    alt=""
+                  />{" "}
+                  Continue with Google
+                </button>
+              </div>
             </div>
           </div>
         </div>
