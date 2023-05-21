@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import img from '../../../public/img/images.png'
 import { AuthContext } from '../../Providers/Authprovider';
+import Swal from 'sweetalert2';
 
 const Addtoy = () => {
 
@@ -27,17 +28,29 @@ console.log(newCoffee);
 //send data
 
 
-fetch('http://localhost:5000/toys',{
-    method: 'POST',
-    headers:{
-        'content-type': 'application/json'
-    },
-    body: JSON.stringify(newCoffee)
+fetch('http://localhost:5000/toys', {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json',
+  },
+  body: JSON.stringify(newCoffee),
 })
-.then(res => res.json())
-.then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     console.log(data);
-})
+
+    // Show the SweetAlert2 toast notification
+    Swal.fire({
+      icon: 'success',
+      title: 'Product Added',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
 
 } 
 
