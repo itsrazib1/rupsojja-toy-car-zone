@@ -78,6 +78,7 @@ const Login = () => {
                   Sing Up
                 </Link>
               </p>
+              
             </div>
           </div>
         </div>
