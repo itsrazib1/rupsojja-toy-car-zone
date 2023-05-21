@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import Toycard from "./Toycard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Product = () => {
+  useEffect(() => {
+    AOS.init(); // Initialize AOS
+  }, []);
   const [toys, setToys] = useState([]);
   const [displayToys, setDisplayToys] = useState([]);
   const [showAll, setShowAll] = useState(false);
@@ -26,7 +31,7 @@ const Product = () => {
   };
 
   return (
-    <div>
+    <div  data-aos="fade-up" data-aos-duration="1000">
       <div className="text-center">
         <h3 className="text-4xl font-bold text-emerald-600">ToY CAR</h3>
         <h4 className="text-2xl">All TOY CAR Here</h4>
