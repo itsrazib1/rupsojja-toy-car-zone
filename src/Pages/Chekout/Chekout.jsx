@@ -56,7 +56,7 @@ const Checkout = () => {
 
     console.log(order);
 
-    fetch("http://localhost:5000/cart", {
+    fetch("https://rupsojja-toy-car-server.vercel.app/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

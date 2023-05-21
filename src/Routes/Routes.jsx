@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/updatetoy/:id",
         element: <Updatetoy/>,
-        loader:({params})=>fetch(`http://localhost:5000/cars/${params.id}`)
+        loader:({params})=>fetch(`https://rupsojja-toy-car-server.vercel.app/cars/${params.id}`)
       },
       {
         path: "/alltoy",
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: "/mytoy",
         element: <Mytoy/>,
-        loader: () => fetch(`http://localhost:5000/cars`)
+        loader: () => fetch(`https://rupsojja-toy-car-server.vercel.app/cars`)
       },
       {
         path: "/blogs",
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       {
         path: "chekout/:id",
         element: <Checkout />,
-        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+        loader: ({ params }) => fetch(`https://rupsojja-toy-car-server.vercel.app/cars/${params.id}`)
       },
       {
         path: "mycart",

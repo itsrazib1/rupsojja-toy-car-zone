@@ -50,7 +50,7 @@ const Updatetoy = () => {
 
     //send data
 
-    fetch(`http://localhost:5000/cars/${_id}`, {
+    fetch(`https://rupsojja-toy-car-server.vercel.app/cars/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

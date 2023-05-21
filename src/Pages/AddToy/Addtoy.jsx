@@ -31,7 +31,7 @@ console.log(newCoffee);
 //send data
 
 
-fetch('http://localhost:5000/toys', {
+fetch('https://rupsojja-toy-car-server.vercel.app/toys', {
   method: 'POST',
   headers: {
     'content-type': 'application/json',

@@ -33,7 +33,7 @@ Swal.fire({
   }).then((result) => {
     if (result.isConfirmed) {
       
-      fetch(`http://localhost:5000/cars/${_id}`,{
+      fetch(`https://rupsojja-toy-car-server.vercel.app/cars/${_id}`,{
         method:'DELETE'
       })
       .then(res => res.json())

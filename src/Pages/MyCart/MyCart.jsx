@@ -7,7 +7,7 @@ const MyCart = () => {
   const { user } = useContext(AuthContext);
   const [carts, setCarts] = useState([]);
 
-  const url = `http://localhost:5000/cart?email=${user?.email}`;
+  const url = `https://rupsojja-toy-car-server.vercel.app/cart?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -26,7 +26,7 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://rupsojja-toy-car-server.vercel.app/cart/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
