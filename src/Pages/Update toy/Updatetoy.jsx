@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/Authprovider";
 import Swal from "sweetalert2";
 
 const Updatetoy = () => {
+    useEffect(()=>{
+        document.title = "RTCZ | Updatetoy"
+    },[])
   const cars = useLoaderData();
   const { user } = useContext(AuthContext);
   const {

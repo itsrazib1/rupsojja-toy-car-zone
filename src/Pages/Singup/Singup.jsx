@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import svg from '../../../public/img/online-sign-up-4489361-3723268.webp'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/Authprovider";
 
 const Singup = () => {
+  useEffect(()=>{
+    document.title = "RTCZ | Singup"
+},[])
 
 const {createUser} = useContext(AuthContext)
 

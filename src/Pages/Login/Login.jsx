@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import svg from "../../../public/img/login.svg";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/Authprovider";
 
 const Login = () => {
+  useEffect(()=>{
+    document.title = "RTCZ | login"
+},[])
   const { singIn } = useContext(AuthContext);
 
   const hendlelogin = (event) => {

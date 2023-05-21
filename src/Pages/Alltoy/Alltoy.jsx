@@ -6,6 +6,9 @@ import Toycard from "../Home/Product/Toycard";
 
 
 const Alltoy = () => {
+  useEffect(()=>{
+        document.title = "RTCZ | Alltoy"
+    },[])
   const [toys, setToys] = useState([]);
   const [displayToys, setDisplayToys] = useState([]);
   const [showAll, setShowAll] = useState(false);

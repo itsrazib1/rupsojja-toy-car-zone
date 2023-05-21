@@ -1,9 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import img from '../../../public/img/images.png'
 import { AuthContext } from '../../Providers/Authprovider';
 import Swal from 'sweetalert2';
 
 const Addtoy = () => {
+  useEffect(()=>{
+    document.title = "RTCZ | Addtoy"
+},[])
 
     const {user} = useContext(AuthContext)
 
