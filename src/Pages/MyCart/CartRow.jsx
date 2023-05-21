@@ -2,7 +2,7 @@
 
 
 const CartRow = ({cart,hendleDelete}) => {
-    const {customerName,address,img,date,email,price,_id} = cart;
+    const {customerName,address,url,date,email,price,_id} = cart;
 
 
 
@@ -19,8 +19,8 @@ const CartRow = ({cart,hendleDelete}) => {
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">
-              <div className=" rounded- w-24 h-24">
-                <img src={img} alt="Avatar Tailwind CSS Component" />
+              <div className=" rounded h-16">
+                <img src={url} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
             <div>

@@ -62,8 +62,8 @@ const Navber = () => {
               alt=""
             />
           </Link>
-          <div className="md:text-xl hidden md:block font-bold ms-5 text-xs">
-            Rupsojja ToY Car Zone
+          <div className="md:text-xl font-bold ms-5 text-xs">
+            Rupsojja ToY <br className=" block md:hidden lg:hidden" />Car Zone
           </div>
         </div>
 
@@ -79,22 +79,27 @@ const Navber = () => {
             <li>
               <Link to="blogs">Blogs</Link>
             </li>
+            {user && (
+            <>
+              <li>
+                <Link to="/mytoy">My Toys</Link>
+              </li>
+              <li>
+                <Link to="/addtoy">Add A Toy</Link>
+              </li>
+            </>
+          )}
           </ul>
         </div>
 
         <div className="navbar-end">
           {user?.email ? (
             <>
-              <div className=" -ms-64  text-xs border border-3 border-red-500 p-1 rounded-md">
-                <Link to="mytoy">My Toys</Link>
-              </div>
-              <div className="text-xs  ms-3 border border-3 border-red-500 p-1 rounded-md">
-                <Link to="/addtoy ">Add A Toy</Link>
-              </div>
+             
               <div className="text-xs">
                 <Link
                   to="/mycart"
-                  className="ms-3 text-xs border border-3 border-red-500 p-1 rounded-md"
+                  className=" text-xs border border-3 border-red-500 p-1 rounded-md"
                 >
                   MyCart
                 </Link>
@@ -105,7 +110,7 @@ const Navber = () => {
                   src={user?.photoURL}
                   alt=""
                 />
-                <div className="absolute top-0 -right-20 bg-white border border-gray-200 rounded-lg py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-0  bg-white border border-gray-200 rounded-lg py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Hello, {user?.displayName}
                 </div>
               </div>
